@@ -3,7 +3,7 @@
 // forcing a full server render on every visitor.
 export const revalidate = 3600;
 
-import Navbar from "../components/Navbar";
+import SiteHeader from "../components/SiteHeader";
 import Hero from "../components/Hero";
 import Now from "../components/Now";
 import VideoIntro from "../components/VideoIntro";
@@ -69,7 +69,7 @@ export default async function Home() {
 
   return (
     <>
-      <Navbar showBlog={blogPosts.length > 0} />
+      <SiteHeader showBlog={blogPosts.length > 0} />
 
       <main id="main" className="flex-1">
         {/* Hero Section */}

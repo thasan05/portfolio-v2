@@ -1,11 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { getPost } from "../../../lib/blog";
 import { getHero } from "../../../lib/content";
 import Markdown from "../../../components/Markdown";
-import Navbar from "../../../components/Navbar";
+import SiteHeader from "../../../components/SiteHeader";
 import Footer from "../../../components/Footer";
 
 export const dynamic = "force-dynamic";
@@ -39,7 +40,7 @@ export default async function BlogPost(
 
   return (
     <>
-      <Navbar showBlog />
+      <SiteHeader showBlog />
       <main id="main" className="flex-1">
         <article className="container-page pt-12 sm:pt-16 pb-24">
           <Link
@@ -85,6 +86,44 @@ export default async function BlogPost(
 
           <div className="prose max-w-none">
             <Markdown>{post.body}</Markdown>
+          </div>
+
+          {/* Author Signature Card */}
+          <div className="card mt-16 flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-surface/80">
+            <div className="flex items-center gap-4">
+              <Image
+                src={hero.profileImage || "/profile.jpg"}
+                alt={hero.name}
+                width={56}
+                height={56}
+                className="size-14 rounded-full border border-line object-cover shrink-0"
+              />
+              <div>
+                <p className="font-serif text-base font-semibold text-fg">
+                  {hero.name}
+                </p>
+                <p className="text-xs text-muted mt-0.5">
+                  {hero.title || "Networking & Systems Focused CSE Undergraduate"}
+                </p>
+                <p className="text-xs text-muted/80 mt-1">
+                  Based in {hero.location} · Future MS Candidate
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 shrink-0">
+              <Link
+                href="/#contact"
+                className="btn btn-primary text-xs py-1.5 px-3 min-h-[2.25rem]"
+              >
+                Get in touch
+              </Link>
+              <Link
+                href="/"
+                className="btn text-xs py-1.5 px-3 min-h-[2.25rem]"
+              >
+                Home
+              </Link>
+            </div>
           </div>
 
           <div className="mt-16 pt-8 border-t border-line flex items-center justify-between">

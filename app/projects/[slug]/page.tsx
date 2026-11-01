@@ -6,7 +6,7 @@ import { getProjects, getHero } from "../../../lib/content";
 import { projectSlug } from "../../../lib/slug";
 import { safeHref } from "../../../lib/safe-href";
 import Markdown from "../../../components/Markdown";
-import Navbar from "../../../components/Navbar";
+import SiteHeader from "../../../components/SiteHeader";
 import Footer from "../../../components/Footer";
 
 export const dynamic = "force-dynamic";
@@ -43,7 +43,7 @@ export default async function ProjectCaseStudy(
 
   return (
     <>
-      <Navbar />
+      <SiteHeader />
       <main id="main" className="flex-1">
         <article className="container-page pt-12 sm:pt-16 pb-24">
           <Link

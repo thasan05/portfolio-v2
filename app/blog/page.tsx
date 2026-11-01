@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { getAllPosts } from "../../lib/blog";
-import Navbar from "../../components/Navbar";
+import SiteHeader from "../../components/SiteHeader";
 import Footer from "../../components/Footer";
 import { getHero } from "../../lib/content";
 
@@ -21,7 +21,7 @@ export default async function BlogIndex() {
 
   return (
     <>
-      <Navbar showBlog />
+      <SiteHeader showBlog />
       <main id="main" className="flex-1">
         <div className="container-page pt-12 sm:pt-16 pb-20">
           <Link

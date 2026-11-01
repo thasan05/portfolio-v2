@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { CheckCircle2, Loader2, Send, Copy, Check } from "lucide-react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -12,6 +12,18 @@ export default function Contact({ email }: { email?: string }) {
   const [company, setCompany] = useState(""); // honeypot
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const copyEmail = async () => {
+    if (!email) return;
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch {
+      // fallback
+    }
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,14 +61,29 @@ export default function Contact({ email }: { email?: string }) {
         <h2 id="contact-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Get in Touch
         </h2>
-        <p className="text-muted text-[15px] max-w-2xl">
+        <p className="text-muted text-[15px] max-w-2xl leading-relaxed">
           Interested in networking research, internship opportunities, or collaborating? Drop a note below.
           {email && (
             <>
               {" "}Or reach out directly at{" "}
-              <a href={`mailto:${email}`} className="text-accent underline hover:text-fg transition-colors">
-                {email}
-              </a>.
+              <span className="inline-flex items-center gap-1.5 font-medium text-fg">
+                <a href={`mailto:${email}`} className="text-accent underline hover:text-fg transition-colors">
+                  {email}
+                </a>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="rounded p-1 text-muted hover:text-fg transition-colors inline-flex"
+                  aria-label="Copy email address"
+                  title="Copy email address"
+                >
+                  {copiedEmail ? (
+                    <Check className="size-3.5 text-accent" />
+                  ) : (
+                    <Copy className="size-3.5" />
+                  )}
+                </button>
+              </span>.
             </>
           )}
         </p>
@@ -115,9 +142,16 @@ export default function Contact({ email }: { email?: string }) {
             </div>
 
             <div>
-              <label htmlFor="contact-message" className="block text-xs font-medium text-muted uppercase tracking-wider mb-1.5">
-                Message
-              </label>
+              <div className="flex items-center justify-between mb-1.5">
+                <label htmlFor="contact-message" className="block text-xs font-medium text-muted uppercase tracking-wider">
+                  Message
+                </label>
+                {message.length > 0 && (
+                  <span className="text-[11px] text-muted tabular-nums">
+                    {message.length} / 5000
+                  </span>
+                )}
+              </div>
               <textarea
                 id="contact-message"
                 className={`${inputCls} resize-y`}
@@ -126,12 +160,14 @@ export default function Contact({ email }: { email?: string }) {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 maxLength={5000}
+                aria-invalid={status === "error"}
+                aria-describedby={status === "error" ? "contact-error" : undefined}
                 required
               />
             </div>
 
             {status === "error" && (
-              <p className="text-xs text-rose-600 dark:text-rose-400 font-medium">
+              <p id="contact-error" role="alert" className="text-xs text-rose-600 dark:text-rose-400 font-medium">
                 {error}
               </p>
             )}
