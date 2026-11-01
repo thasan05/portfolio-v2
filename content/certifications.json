@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cert-1",
+    "name": "Cisco Networking Academy — Introduction to Networks",
+    "issuer": "Cisco",
+    "issuerLogo": "cisco",
+    "date": "2024",
+    "credentialUrl": "",
+    "color": "blue"
+  },
+  {
+    "id": "cert-2",
+    "name": "Python for Everybody",
+    "issuer": "Coursera / University of Michigan",
+    "issuerLogo": "coursera",
+    "date": "2024",
+    "credentialUrl": "",
+    "color": "indigo"
+  }
+]

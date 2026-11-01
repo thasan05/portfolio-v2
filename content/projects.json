@@ -1,0 +1,35 @@
+[
+  {
+    "id": "proj-1",
+    "title": "Campus Network Design & Simulation",
+    "description": "Designed a multi-floor campus network topology using Cisco Packet Tracer. Implemented VLANs, inter-VLAN routing, OSPF, STP, and DHCP. Simulated full Layer 2/3 connectivity with redundant links.",
+    "tags": ["Cisco Packet Tracer", "VLAN", "OSPF", "STP", "DHCP"],
+    "repoUrl": "",
+    "liveUrl": "",
+    "status": "Completed",
+    "date": "2025",
+    "color": "blue"
+  },
+  {
+    "id": "proj-2",
+    "title": "AQI & Air Pollution Data Analysis",
+    "description": "Analyzed air pollutant concentration datasets (PM2.5, PM10, NO₂, CO) across Bangladesh. Built statistical models to identify AQI trends. Research presented at 8th IEOM Bangladesh International Conference.",
+    "tags": ["Python", "Pandas", "Matplotlib", "Data Analysis", "Research"],
+    "repoUrl": "",
+    "liveUrl": "",
+    "status": "Published",
+    "date": "2025",
+    "color": "emerald"
+  },
+  {
+    "id": "proj-3",
+    "title": "Personal Portfolio Website",
+    "description": "Built this portfolio from scratch using Next.js 16, Tailwind CSS v4, and Framer Motion. Features a custom glassmorphism design system, dark/light mode, admin CMS backed by Vercel KV, and visitor analytics.",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel KV"],
+    "repoUrl": "https://github.com/thasan05",
+    "liveUrl": "https://tanvirh.vercel.app",
+    "status": "Live",
+    "date": "2026",
+    "color": "violet"
+  }
+]

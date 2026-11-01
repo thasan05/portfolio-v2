@@ -1,0 +1,26 @@
+[
+  {
+    "id": "skills-1",
+    "title": "Programming Languages",
+    "theme": "amber",
+    "skills": ["Python", "C++", "Java", "JavaScript", "SQL", "Bash"]
+  },
+  {
+    "id": "skills-2",
+    "title": "Networking & Protocols",
+    "theme": "blue",
+    "skills": ["TCP/IP", "Routing", "Switching", "OSPF", "BGP", "IP Addressing", "Subnetting", "VLANs", "STP", "Wireshark"]
+  },
+  {
+    "id": "skills-3",
+    "title": "Systems & Tools",
+    "theme": "emerald",
+    "skills": ["Linux", "Git", "GitHub", "Docker", "Cisco Packet Tracer", "Ansible", "VS Code", "Bash Scripting"]
+  },
+  {
+    "id": "skills-4",
+    "title": "Concepts",
+    "theme": "violet",
+    "skills": ["Distributed Systems", "Network Security", "Data Analysis", "REST APIs", "OOP", "Algorithms"]
+  }
+]

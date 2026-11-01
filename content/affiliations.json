@@ -1,0 +1,20 @@
+[
+  {
+    "id": "aff-1",
+    "role": "Member",
+    "org": "ESAB AIUB Unit FACE",
+    "orgUrl": "https://esabaiubuf.com/",
+    "period": "Jan 2025 – Present",
+    "institution": "American International University-Bangladesh",
+    "color": "indigo"
+  },
+  {
+    "id": "aff-2",
+    "role": "Student Member",
+    "org": "IEEE AIUB Student Branch",
+    "orgUrl": "https://ieeeaiubsb.com/",
+    "period": "May 2026 – Present",
+    "institution": "American International University-Bangladesh",
+    "color": "blue"
+  }
+]

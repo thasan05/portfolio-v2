@@ -1,0 +1,14 @@
+{
+  "conferences": [
+    {
+      "id": "pub-c-1",
+      "title": "Study of Air Pollutant Concentrations and AQI Trends in Bangladesh",
+      "venue": "8th Industrial Engineering and Operations Management Bangladesh Conference",
+      "location": "Dhaka, Bangladesh",
+      "date": "December 20–21, 2025",
+      "doi": "https://doi.org/10.46254/BA08.20250452",
+      "paperUrl": "https://index.ieomsociety.org/index.cfm/item/58337"
+    }
+  ],
+  "journals": []
+}

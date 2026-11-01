@@ -1,0 +1,12 @@
+[
+  {
+    "id": "welcome",
+    "slug": "welcome",
+    "title": "Why I Built My Portfolio as a Self-Editable CMS",
+    "date": "2026-07-06",
+    "excerpt": "A short note on the engineering decisions behind this site — ISR caching, a Redis-backed CMS, and why the whole thing updates without a redeploy.",
+    "tags": ["Next.js", "Systems", "Web"],
+    "published": true,
+    "body": "Most student portfolios are static — to change a line, you edit code and redeploy.\nI wanted mine to work like a real product: **edit content from an admin panel,\nsee it live instantly, no rebuild.**\n\n## The setup\n\n- Every section (Career, Projects, Bookshelf, …) reads its data from **Upstash\n  Redis**, falling back to bundled JSON defaults.\n- An `/admin` panel writes edits back to Redis.\n- The homepage uses **Incremental Static Regeneration** — it's served from the\n  CDN, and each save calls `revalidatePath(\"/\")` so the cache busts immediately.\n\nThe result: visitors get a fast, cached page, and I get instant edits. That\ncache-on-write, invalidate-on-change pattern is the same idea behind a lot of\ndistributed systems — which is exactly the space I want to work in.\n\n## What's next\n\nI'll use this space to write about networking and systems topics as I learn\nthem. If you're a recruiter or researcher reading this — the\n[contact form](/#contact) is the fastest way to reach me."
+  }
+]

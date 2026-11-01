@@ -1,0 +1,78 @@
+[
+    {
+    "id": 1,
+    "category": "LinkedIn Community Bangladesh",
+    "iconType": "award",
+    "images": [
+"/photos/lcb/img0.jpg",
+"/photos/lcb/img1.jpg",
+"/photos/lcb/img2.jpg",
+"/photos/lcb/img3.jpg",
+"/photos/lcb/img4.jpg"
+    ],
+    "title": "LinkedIn Community Bangladesh Recognitions",
+    "date": "May 2026 - Present",
+    "description": "As a Campus Lead at LinkedIn Community Bangladesh, I have been recognized for my contributions to the community, including getting selected as their best campus lead to receiving awards."
+  },
+  
+  
+  {
+    "id": 2,
+    "category": "UIU, Dhaka, Bangladesh",
+    "iconType": "mic",
+    "images": [
+      "/photos/prescom/img0.jpg",  "/photos/prescom/img1.jpg",  "/photos/prescom/img2.jpg",
+      "/photos/prescom/img3.jpg",  "/photos/prescom/img4.jpg",  "/photos/prescom/img5.jpg",
+      "/photos/prescom/img6.jpg",  "/photos/prescom/img7.jpg",  "/photos/prescom/img8.jpg",
+      "/photos/prescom/img9.jpg",  "/photos/prescom/img10.JPG", "/photos/prescom/img11.JPG",
+      "/photos/prescom/img12.JPG", "/photos/prescom/img13.jpg", "/photos/prescom/img14.jpg",
+      "/photos/prescom/img15.jpg", "/photos/prescom/img16.jpg"
+    ],
+    "title": "UIU Presentation Champs Grand Finale 2026",
+    "date": "Jan 2026",
+    "description": "Finalist at the UIU Presentation Champs Grand Finale 2026, presenting research on a national inter-university stage."
+  },
+  {
+    "id": 3,
+    "category": "MCSK, Khulna, Bangladesh",
+    "iconType": "award",
+    "images": [
+      "/photos/sahchamp/img0.jpg", "/photos/sahchamp/img1.jpg", "/photos/sahchamp/img2.jpg",
+      "/photos/sahchamp/img3.jpg", "/photos/sahchamp/img4.jpg", "/photos/sahchamp/img6.jpg",
+      "/photos/sahchamp/img7.jpg", "/photos/sahchamp/img8.jpg"
+    ],
+    "title": "Cadet Life at MCSK",
+    "date": "Mar 2016 – Dec 2022",
+    "description": "I come from a rigorous military school background, where I developed discipline and leadership over 6 years, which profoundly shaped my character."
+  },
+  {
+    "id": 4,
+    "category": "WUB, Dhaka, Bangladesh",
+    "iconType": "mic",
+    "images": [
+      "/photos/paperpub/img0.jpg", "/photos/paperpub/img1.jpg", "/photos/paperpub/img2.jpg",
+      "/photos/paperpub/img3.jpg", "/photos/paperpub/img4.jpg", "/photos/paperpub/img5.jpg"
+    ],
+    "title": "8th IEOM Bangladesh International Conference",
+    "date": "Dec 2025",
+    "description": "I presented our research paper at the conference, receiving positive feedback from experts in the field."
+  },
+  {
+    "id": 5,
+    "category": "Drumming",
+    "iconType": "music",
+    "images": ["/photos/drums/img1.JPG", "/photos/drums/img2.JPG", "/photos/drums/img3.jpg"],
+    "title": "Self Taught Drummer",
+    "date": "Self-Taught Journey",
+    "description": "From playing drums on desk at the back of the classroom to performing live, my drumming journey has been a passionate self-taught adventure."
+  },
+  {
+    "id": 6,
+    "category": "YouTube",
+    "iconType": "music",
+    "images": ["/photos/youtube.png"],
+    "title": "Teaching Beyond the Classroom",
+    "date": "Active Contribution",
+    "description": "My voluntary CS content on YouTube has helped thousands of students of my university & generated {{views}} views."
+  }
+]

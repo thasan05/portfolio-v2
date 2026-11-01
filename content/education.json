@@ -1,0 +1,32 @@
+[
+  {
+    "id": "edu-1",
+    "degree": "B.Sc. in Computer Science & Engineering",
+    "school": "American International University-Bangladesh (AIUB)",
+    "schoolUrl": "https://www.aiub.edu/",
+    "period": "Sep 2023 — Present",
+    "subtitle": "3rd Year Undergraduate",
+    "gpa": "",
+    "description": "Focused on systems, networking, applied computing foundations, and performance-driven architectures."
+  },
+  {
+    "id": "edu-2",
+    "degree": "Higher Secondary Certificate (HSC)",
+    "school": "Military Collegiate School Khulna (MCSK)",
+    "schoolUrl": "https://www.mcsk.edu.bd/",
+    "period": "2020 — 2022",
+    "subtitle": "Science",
+    "gpa": "5.00 / 5.00",
+    "description": ""
+  },
+  {
+    "id": "edu-3",
+    "degree": "Secondary School Certificate (SSC)",
+    "school": "Military Collegiate School Khulna (MCSK)",
+    "schoolUrl": "https://www.mcsk.edu.bd/",
+    "period": "2018 — 2020",
+    "subtitle": "Science",
+    "gpa": "5.00 / 5.00",
+    "description": ""
+  }
+]

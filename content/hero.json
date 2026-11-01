@@ -1,0 +1,25 @@
+{
+  "name": "Tanvir Hasan",
+  "initials": "TH",
+  "email": "tanvirhasan.career@gmail.com",
+  "phone": "+88 018 5272 6070",
+  "location": "Dhaka, Bangladesh",
+  "title": "Networking & Systems Focused CSE Undergraduate",
+  "status": "Future MS Candidate",
+  "openTo": "Open to Internships — Summer/Fall 2026",
+  "bio": "3rd-year CSE student at AIUB building towards graduate research in networking and distributed systems. Background in military school discipline, competitive presentations, and published research.",
+  "focusTags": ["Computer Networks", "Distributed Systems", "Infrastructure Automation"],
+  "resumeUrl": "/resume.pdf",
+  "profileImage": "/profile.jpg",
+  "socials": [
+    { "platform": "linkedin",     "url": "https://linkedin.com/in/thasan05",                                  "label": "LinkedIn"     },
+    { "platform": "github",       "url": "https://github.com/thasan05",                                       "label": "GitHub"       },
+    { "platform": "facebook",     "url": "https://facebook.com/thasan05",                                     "label": "Facebook"     },
+    { "platform": "instagram",    "url": "https://instagram.com/thasan_05",                                   "label": "Instagram"    },
+    { "platform": "x",            "url": "https://x.com/thasan_05",                                           "label": "X (Twitter)"  },
+    { "platform": "medium",       "url": "https://medium.com/@thasan05",                                      "label": "Medium"       },
+    { "platform": "devto",        "url": "https://dev.to/thasan05",                                           "label": "Dev.to"       },
+    { "platform": "bluesky",      "url": "https://bsky.app/profile/thasan05.bsky.social",                    "label": "Bluesky"      },
+    { "platform": "researchgate", "url": "https://www.researchgate.net/profile/Md-Hasan-1149?ev=hdr_xprf",   "label": "ResearchGate" }
+  ]
+}

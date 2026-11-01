@@ -1,0 +1,62 @@
+[
+  {
+    "id": "id-1783471703961-9k4zk",
+    "title": "Microsoft Student Ambassador",
+    "org": "Microsoft",
+    "orgUrl": "https://mvp.microsoft.com/studentambassadors",
+    "period": "Jul 2026",
+    "location": "Dhaka, Bangladesh",
+    "description": "Joined a global community of students exploring what’s possible with Microsoft technology. Built practical skills and leadership experiences that helps move forward—creating opportunities aligned to what I care about most.",
+    "dotColor": "bg-indigo-500",
+    "glowColor": "bg-indigo-500",
+    "badgeTheme": "indigo"
+  },
+  {
+    "id": "id-1783471248051-qe5fn",
+    "title": "Founder, Microsoft Student Ambassadors - AIUB",
+    "org": "Microsoft Student Ambassadors - AIUB",
+    "orgUrl": "https://msa-aiub.vercel.app",
+    "period": "Jul 2026 - Present",
+    "location": "Dhaka, Bangladesh",
+    "description": "Founded and lead Microsoft Student Ambassadors – AIUB (MSA-AIUB), a student-led community focused on empowering AIUB students through Microsoft technologies, technical learning, leadership, and community engagement. Built the community's brand, website, and digital presence. Organized technical events, workshops, and learning initiatives. Connected students with Microsoft Learn resources and opportunities.",
+    "dotColor": "bg-indigo-500",
+    "glowColor": "bg-indigo-500",
+    "badgeTheme": "indigo"
+  },
+  {
+    "id": "exp-1",
+    "title": "Team Leader & Top-8 Finalist",
+    "org": "UIU English Language Forum — Inter University Presentation Competition",
+    "orgUrl": "https://www.uiu.ac.bd/event/subject-invitation-to-grand-finale-presentation-champs-season-ii-inter-university-competition/",
+    "period": "Jan 2026",
+    "location": "United International University, Dhaka, Bangladesh",
+    "description": "Led a 3-member team in a national inter-university presentation competition organized by the UIU English Language Forum. Ranked among the Top 8 finalists out of 84 participating teams (~top 9.5%) after multiple competitive rounds.",
+    "dotColor": "bg-blue-500",
+    "glowColor": "bg-blue-500",
+    "badgeTheme": "blue"
+  },
+  {
+    "id": "exp-2",
+    "title": "Conference Paper Presenter",
+    "org": "8th IEOM Bangladesh International Conference",
+    "orgUrl": "https://ieomsociety.org/bangladesh2025/",
+    "period": "Dec 2025",
+    "location": "World University, Dhaka, Bangladesh",
+    "description": "Presented research on Air Pollutant Concentrations and AQI Trends in Bangladesh to an international academic audience. Represented AIUB at a peer-reviewed industrial engineering and operations management conference.",
+    "dotColor": "bg-violet-500",
+    "glowColor": "bg-violet-500",
+    "badgeTheme": "violet"
+  },
+  {
+    "id": "exp-3",
+    "title": "Campus Ambassador & Community Representative",
+    "org": "Multiple Educational & Youth Organizations",
+    "orgUrl": "",
+    "period": "Oct 2023 – Dec 2025",
+    "location": "Dhaka, Bangladesh",
+    "description": "Represented multiple educational and youth-focused organizations as a campus ambassador, promoting learning programs, events, and student opportunities. Organizations include Programming Hero, English Olympiad, Interactive Cares, and YouthBees.",
+    "dotColor": "bg-emerald-500",
+    "glowColor": "bg-emerald-500",
+    "badgeTheme": "emerald"
+  }
+]
