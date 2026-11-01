@@ -9,7 +9,6 @@ export default function Testimonials({ data }: { data: TestimonialItem[] }) {
   return (
     <section id="testimonials" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="testimonials-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Recommendations</p>
         <h2 id="testimonials-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Endorsements
         </h2>

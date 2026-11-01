@@ -32,8 +32,7 @@ export default async function BlogIndex() {
           </Link>
 
           <header className="border-b border-line pb-8">
-            <p className="eyebrow">Writing</p>
-            <h1 className="mt-3 font-serif text-4xl font-semibold tracking-tight sm:text-5xl text-fg">
+            <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl text-fg">
               Notes &amp; Articles
             </h1>
             <p className="mt-4 text-muted text-[17px] max-w-2xl leading-relaxed">

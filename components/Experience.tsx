@@ -9,7 +9,6 @@ export default function Experience({ data }: { data: ExperienceItem[] }) {
   return (
     <section id="experience" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="experience-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Experience &amp; Leadership</p>
         <h2 id="experience-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Leadership &amp; Community
         </h2>

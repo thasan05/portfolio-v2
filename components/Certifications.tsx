@@ -10,7 +10,6 @@ export default function Certifications({ data }: { data: CertItem[] }) {
   return (
     <section id="certifications" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="certifications-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Certifications</p>
         <h2 id="certifications-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Verified Credentials
         </h2>

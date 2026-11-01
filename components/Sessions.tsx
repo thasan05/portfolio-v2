@@ -10,7 +10,6 @@ export default function Sessions({ data }: { data: SessionItem[] }) {
   return (
     <section id="sessions" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="sessions-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Speaking &amp; Teaching</p>
         <h2 id="sessions-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Sessions &amp; Workshops
         </h2>

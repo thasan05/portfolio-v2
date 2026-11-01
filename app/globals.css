@@ -161,6 +161,16 @@ p {
 
 .btn:hover {
   border-color: var(--fg);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .btn-primary {
@@ -173,6 +183,11 @@ p {
   border-color: var(--accent);
   background-color: var(--accent);
   color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .tag {
@@ -196,10 +211,22 @@ p {
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+@media (min-width: 640px) {
+  .card {
+    padding: 1.5rem;
+  }
+}
+
 a.card:hover,
 .card:has(a.stretched:hover) {
   transform: translateY(-2px);
   border-color: var(--muted);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark a.card:hover,
+.dark .card:has(a.stretched:hover) {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.35);
 }
 
 .stretched::after {

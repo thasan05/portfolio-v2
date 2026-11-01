@@ -15,7 +15,7 @@ export default function Now({ data }: { data: NowData }) {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
             <span className="relative inline-flex size-2 rounded-full bg-accent" />
           </span>
-          <h2 id="now-heading" className="eyebrow">
+          <h2 id="now-heading" className="font-serif text-lg font-semibold text-fg">
             Now
           </h2>
         </div>

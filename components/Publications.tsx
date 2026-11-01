@@ -13,9 +13,8 @@ export default function Publications({ data }: { data: PublicationsData }) {
   return (
     <section id="research" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="research-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Research &amp; Publications</p>
         <h2 id="research-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
-          Academic Research
+          Academic Research &amp; Publications
         </h2>
         <p className="text-muted text-[15px] max-w-2xl">
           Peer-reviewed conference proceedings and research investigations in applied computing.
@@ -24,7 +23,7 @@ export default function Publications({ data }: { data: PublicationsData }) {
 
       {hasConferences && (
         <div className="mt-8">
-          <h3 className="eyebrow text-xs mb-3 text-muted">
+          <h3 className="font-serif text-lg font-semibold text-fg mb-3">
             Conference Proceedings
           </h3>
           <ul className="divide-y divide-line border-y border-line">
@@ -73,7 +72,7 @@ export default function Publications({ data }: { data: PublicationsData }) {
 
       {hasJournals && (
         <div className="mt-10">
-          <h3 className="eyebrow text-xs mb-3 text-muted">
+          <h3 className="font-serif text-lg font-semibold text-fg mb-3">
             Journal Articles
           </h3>
           <ul className="divide-y divide-line border-y border-line">

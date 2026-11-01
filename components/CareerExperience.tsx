@@ -9,7 +9,6 @@ export default function CareerExperience({ data }: { data: CareerItem[] }) {
   return (
     <section id="career" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="career-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Work Experience</p>
         <h2 id="career-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Career Experience
         </h2>

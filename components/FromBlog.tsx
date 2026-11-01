@@ -9,8 +9,7 @@ export default function FromBlog({ posts }: { posts: BlogPost[] }) {
     <section id="blog-preview" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="blog-preview-heading">
       <div className="flex items-baseline justify-between border-b border-line pb-4">
         <div>
-          <p className="eyebrow">Writing</p>
-          <h2 id="blog-preview-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg mt-1">
+          <h2 id="blog-preview-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
             From the Blog
           </h2>
         </div>

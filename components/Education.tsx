@@ -9,7 +9,6 @@ export default function Education({ data }: { data: EducationItem[] }) {
   return (
     <section id="education" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="education-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Education</p>
         <h2 id="education-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Academic Background
         </h2>

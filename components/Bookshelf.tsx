@@ -9,7 +9,6 @@ export default function Bookshelf({ data }: { data: BookItem[] }) {
   return (
     <section id="books" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="bookshelf-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Reading</p>
         <h2 id="bookshelf-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Bookshelf
         </h2>

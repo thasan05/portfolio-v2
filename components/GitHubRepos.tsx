@@ -11,7 +11,6 @@ export default function GitHubRepos({ data }: { data: Repo[] }) {
     <section id="github" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="github-heading">
       <div className="flex items-baseline justify-between gap-4">
         <div>
-          <p className="eyebrow">Open Source</p>
           <h2 id="github-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
             Recent Repositories
           </h2>

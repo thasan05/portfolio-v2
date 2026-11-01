@@ -63,6 +63,7 @@ function MemorySlider({
               src={src}
               alt={`${title} — ${i + 1}`}
               fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover object-top"
             />
           </div>
@@ -193,7 +194,6 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
   return (
     <section id="beyond" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="beyond-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Moments &amp; Milestones</p>
         <h2 id="beyond-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Beyond Academics
         </h2>
@@ -219,7 +219,7 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
 
                 <div className="flex items-center gap-2 mb-1.5">
                   <Icon size={12} className="text-accent shrink-0" />
-                  <span className="eyebrow text-[11px] text-muted">
+                  <span className="text-[12px] font-medium text-muted">
                     {item.category}
                   </span>
                 </div>
@@ -317,6 +317,7 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
                       src={selectedState.item.images[selectedState.index]}
                       alt={selectedState.item.title}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 896px"
                       className="object-contain"
                       priority
                     />

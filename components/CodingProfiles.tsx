@@ -10,7 +10,6 @@ export default function CodingProfiles({ data }: { data: CodingProfile[] }) {
   return (
     <section id="coding" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="coding-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Problem Solving</p>
         <h2 id="coding-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Competitive Programming
         </h2>

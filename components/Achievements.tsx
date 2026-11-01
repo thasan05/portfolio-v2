@@ -24,7 +24,6 @@ export default function Achievements({ data }: { data: AchievementItem[] }) {
   return (
     <section id="achievements" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="achievements-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Honors</p>
         <h2 id="achievements-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
           Achievements &amp; Awards
         </h2>

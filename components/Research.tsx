@@ -10,7 +10,6 @@ export default function Research({ data }: { data: ResearchData }) {
   return (
     <section id="research-interests" className="container-wide mt-12 sm:mt-16 scroll-mt-20" aria-labelledby="research-interests-heading">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow">Focus Areas</p>
         <h3 id="research-interests-heading" className="font-serif text-2xl font-semibold tracking-tight sm:text-3xl text-fg">
           Research Interests
         </h3>

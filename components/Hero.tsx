@@ -66,22 +66,25 @@ export default function Hero({ data }: { data: HeroData }) {
           />
           {data.status && (
             <span
-              className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 size-3.5 sm:size-4 rounded-full bg-emerald-500 border-2 border-bg"
+              className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 flex size-3.5 sm:size-4"
               title={data.status}
-            />
+            >
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full size-3.5 sm:size-4 bg-emerald-500 border-2 border-bg" />
+            </span>
           )}
         </div>
       </div>
 
       {/* Narrative content */}
       <div className="md:order-1 max-w-2xl">
-        <p className="eyebrow fade-up">
-          {data.title || "Networking & Systems Focused CSE Undergraduate"}
-        </p>
-
-        <h1 className="fade-up mt-3 font-serif text-[2.5rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl text-fg">
+        <h1 className="fade-up font-serif text-[2.75rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl text-fg">
           {data.name}
         </h1>
+
+        <p className="fade-up mt-2 font-serif italic text-lg sm:text-xl text-accent font-normal">
+          {data.title || "Networking & Systems Focused CSE Undergraduate"}
+        </p>
 
         <p className="fade-up mt-5 font-serif text-xl sm:text-2xl leading-snug text-muted">
           {data.bio}
@@ -159,7 +162,7 @@ export default function Hero({ data }: { data: HeroData }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={s.label}
-                className="grid size-8 place-items-center rounded-full border border-line text-muted transition-colors hover:text-fg hover:border-fg"
+                className="grid size-8 place-items-center rounded-full border border-line text-muted transition-all duration-150 hover:text-fg hover:border-fg hover:scale-105 active:scale-95"
                 aria-label={s.label}
               >
                 {getSocialIcon(s.platform)}
