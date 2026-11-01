@@ -16,22 +16,17 @@ export default function FadeInSection({
   direction = "up",
   className = "",
 }: Props) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px 0px" });
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px 0px" });
 
   return (
     <motion.div
       ref={ref}
-      // opacity:1 on purpose (same reasoning as Hero.tsx): Framer writes `initial`
-      // into the SSR HTML, so opacity:0 hid ~20 sections until their client
-      // components hydrated, and it stacked with each child's own opacity:0.
-      // The children own the fade; the card owns the rise.
-      initial={{ opacity: 1, y: direction === "up" ? 20 : 0 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0.01, y: direction === "up" ? 16 : 0 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0.01, y: direction === "up" ? 16 : 0 }}
       transition={{
-        type: "spring",
-        bounce: 0.2,
-        duration: 0.7,
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
         delay,
       }}
       className={className}

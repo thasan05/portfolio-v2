@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import type { ProjectItem } from "../lib/content";
 import { safeHref } from "../lib/safe-href";
@@ -11,7 +12,14 @@ function ProjectCard({ item }: { item: ProjectItem }) {
   const hasCaseStudy = Boolean(item.body && item.body.trim());
 
   return (
-    <article className="card group relative flex h-full flex-col justify-between overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-fg/40 hover:shadow-sm">
+    <motion.article
+      layout
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      className="card group relative flex h-full flex-col justify-between overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-fg/40 hover:shadow-sm"
+    >
       <div>
         <div className="flex items-baseline justify-between gap-3">
           <h3 className="font-serif text-xl font-semibold text-fg">
@@ -96,14 +104,13 @@ function ProjectCard({ item }: { item: ProjectItem }) {
           )}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
 export default function Projects({ data }: { data: ProjectItem[] }) {
   const [selectedTag, setSelectedTag] = useState<string>("all");
 
-  // Extract distinct thematic tags that exist in project data
   const availableTags = useMemo(() => {
     if (!Array.isArray(data)) return [];
     const set = new Set<string>();
@@ -167,11 +174,13 @@ export default function Projects({ data }: { data: ProjectItem[] }) {
         </div>
       )}
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        {filteredProjects.map((item) => (
-          <ProjectCard key={item.id} item={item} />
-        ))}
-      </div>
+      <motion.div layout className="mt-6 grid gap-4 sm:grid-cols-2">
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((item) => (
+            <ProjectCard key={item.id} item={item} />
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 }

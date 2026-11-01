@@ -28,6 +28,7 @@ import FromBlog from "../components/FromBlog";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import FadeInSection from "../components/FadeInSection";
 import {
   getHero, getVideo, getCareer, getExperience, getEducation, getSkills,
   getPublications, getReferences, getAffiliations, getBeyond,
@@ -82,57 +83,91 @@ export default async function Home() {
         <Now data={now} />
 
         {/* Featured Projects */}
-        <Projects data={projects} />
+        <FadeInSection>
+          <Projects data={projects} />
+        </FadeInSection>
 
         {/* Academic Research & Peer-Reviewed Publications */}
-        <Publications data={publications} />
-        <Research data={research} />
+        <FadeInSection>
+          <Publications data={publications} />
+          <Research data={research} />
+        </FadeInSection>
 
         {/* Experience & Leadership */}
-        <CareerExperience data={career} />
-        <Experience data={experience} />
+        <FadeInSection>
+          <CareerExperience data={career} />
+          <Experience data={experience} />
+        </FadeInSection>
 
         {/* Education & Qualifications */}
-        <Education data={education} />
+        <FadeInSection>
+          <Education data={education} />
+        </FadeInSection>
 
         {/* Technical Skills & Domains */}
-        <TechnicalSkills data={skills} />
+        <FadeInSection>
+          <TechnicalSkills data={skills} />
+        </FadeInSection>
 
         {/* Verified Certifications */}
-        <Certifications data={certifications} />
+        <FadeInSection>
+          <Certifications data={certifications} />
+        </FadeInSection>
 
         {/* Open Source on GitHub */}
-        <GitHubRepos data={repos} />
+        <FadeInSection>
+          <GitHubRepos data={repos} />
+        </FadeInSection>
 
         {/* Competitive Programming & Coding Profiles */}
-        <CodingProfiles data={coding} />
+        <FadeInSection>
+          <CodingProfiles data={coding} />
+        </FadeInSection>
 
         {/* Achievements, Honors & Awards */}
-        <Achievements data={achievements} />
+        <FadeInSection>
+          <Achievements data={achievements} />
+        </FadeInSection>
 
         {/* Beyond Academics & Life Journey */}
-        <Beyond data={beyond} />
+        <FadeInSection>
+          <Beyond data={beyond} />
+        </FadeInSection>
 
         {/* Bookshelf */}
-        <Bookshelf data={books} />
+        <FadeInSection>
+          <Bookshelf data={books} />
+        </FadeInSection>
 
         {/* Academic References */}
-        <AcademicReferences data={references} />
+        <FadeInSection>
+          <AcademicReferences data={references} />
+        </FadeInSection>
 
         {/* Professional Affiliations */}
-        <Affiliations data={affiliations} />
+        <FadeInSection>
+          <Affiliations data={affiliations} />
+        </FadeInSection>
 
         {/* Talks, Sessions & Workshops */}
-        <Sessions data={sessions} />
+        <FadeInSection>
+          <Sessions data={sessions} />
+        </FadeInSection>
 
         {/* Endorsements / Testimonials */}
-        <Testimonials data={testimonials} />
+        <FadeInSection>
+          <Testimonials data={testimonials} />
+        </FadeInSection>
 
         {/* Writing from the Blog */}
-        <FromBlog posts={blogPosts} />
+        <FadeInSection>
+          <FromBlog posts={blogPosts} />
+        </FadeInSection>
 
         {/* Contact Section */}
-        <Contact email={hero.email} />
+        <FadeInSection>
+          <Contact email={hero.email} />
+        </FadeInSection>
       </main>
 
       {/* Footer */}

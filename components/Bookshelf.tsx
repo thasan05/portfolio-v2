@@ -16,9 +16,9 @@ export default function Bookshelf({ data }: { data: BookItem[] }) {
 
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         {data.map((book) => (
-          <div key={book.id} className="card flex items-start gap-4">
+          <div key={book.id} className="card group flex items-start gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-fg/40">
             {book.coverImage && (
-              <div className="relative aspect-[2/3] w-16 shrink-0 overflow-hidden rounded-md border border-line bg-line/20">
+              <div className="relative aspect-[2/3] w-16 shrink-0 overflow-hidden rounded-md border border-line bg-line/20 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:rotate-1 group-hover:shadow-md">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={book.coverImage}

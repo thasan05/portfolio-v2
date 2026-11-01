@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Search, ArrowRight, User, Briefcase,
   GraduationCap, BookOpen, Heart, Mail,
@@ -188,99 +189,109 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, filtered, selectedIndex, handleClose]);
 
-  if (!isOpen) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 px-4"
-      onClick={handleClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Command Palette"
-    >
-      <div
-        className="w-full max-w-xl rounded-2xl border border-line bg-surface shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Search header */}
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-line/60">
-          <Search className="size-4 text-muted shrink-0" />
-          <input
-            ref={inputRef}
-            type="text"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setSelectedIndex(0);
-            }}
-            placeholder="Type a section, project, or link…"
-            className="w-full bg-transparent text-sm text-fg placeholder:text-muted focus:outline-none"
-          />
-          <button
-            type="button"
-            onClick={handleClose}
-            className="grid size-7 place-items-center rounded-lg text-muted hover:text-fg hover:bg-line/40 transition-colors"
-            aria-label="Close"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 px-4"
+          onClick={handleClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Command Palette"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: -10 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-xl rounded-2xl border border-line bg-surface shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
-            <X className="size-4" />
-          </button>
-        </div>
-
-        {/* Results list */}
-        <div className="max-h-[360px] overflow-y-auto p-2">
-          {filtered.length === 0 ? (
-            <div className="py-8 text-center text-sm text-muted">
-              No matching destinations found.
+            {/* Search header */}
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-line/60">
+              <Search className="size-4 text-muted shrink-0" />
+              <input
+                ref={inputRef}
+                type="text"
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setSelectedIndex(0);
+                }}
+                placeholder="Type a section, project, or link…"
+                className="w-full bg-transparent text-sm text-fg placeholder:text-muted focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={handleClose}
+                className="grid size-7 place-items-center rounded-lg text-muted hover:text-fg hover:bg-line/40 transition-colors"
+                aria-label="Close"
+              >
+                <X className="size-4" />
+              </button>
             </div>
-          ) : (
-            <ul className="space-y-0.5" role="listbox">
-              {filtered.map((item, idx) => {
-                const Icon = item.icon;
-                const isSelected = idx === selectedIndex;
-                return (
-                  <li
-                    key={item.id}
-                    role="option"
-                    aria-selected={isSelected}
-                    onClick={() => item.action()}
-                    onMouseEnter={() => setSelectedIndex(idx)}
-                    className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors text-sm ${
-                      isSelected
-                        ? "bg-line/60 text-fg"
-                        : "text-muted hover:text-fg hover:bg-line/30"
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <Icon className="size-4 shrink-0 text-muted" />
-                      <span className="truncate">{item.title}</span>
-                    </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <span className="text-[11px] font-medium text-muted/80 bg-line/40 px-2 py-0.5 rounded-md">
-                        {item.category}
-                      </span>
-                      {item.external ? (
-                        <ExternalLink className="size-3 text-muted" />
-                      ) : (
-                        <ArrowRight className="size-3 text-muted" />
-                      )}
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
 
-        {/* Footer shortcuts */}
-        <div className="flex items-center justify-between px-4 py-2 border-t border-line/60 text-[11px] text-muted bg-surface/50">
-          <div className="flex items-center gap-3">
-            <span>↑↓ Navigate</span>
-            <span>↵ Select</span>
-            <span>Esc Close</span>
-          </div>
-          <span className="opacity-70 font-mono">tanvirh.vercel.app</span>
-        </div>
-      </div>
-    </div>
+            {/* Results list */}
+            <div className="max-h-[360px] overflow-y-auto p-2">
+              {filtered.length === 0 ? (
+                <div className="py-8 text-center text-sm text-muted">
+                  No matching destinations found.
+                </div>
+              ) : (
+                <ul className="space-y-0.5" role="listbox">
+                  {filtered.map((item, idx) => {
+                    const Icon = item.icon;
+                    const isSelected = idx === selectedIndex;
+                    return (
+                      <li
+                        key={item.id}
+                        role="option"
+                        aria-selected={isSelected}
+                        onClick={() => item.action()}
+                        onMouseEnter={() => setSelectedIndex(idx)}
+                        className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors text-sm ${
+                          isSelected
+                            ? "bg-line/60 text-fg"
+                            : "text-muted hover:text-fg hover:bg-line/30"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <Icon className="size-4 shrink-0 text-muted" />
+                          <span className="truncate">{item.title}</span>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className="text-[11px] font-medium text-muted/80 bg-line/40 px-2 py-0.5 rounded-md">
+                            {item.category}
+                          </span>
+                          {item.external ? (
+                            <ExternalLink className="size-3 text-muted" />
+                          ) : (
+                            <ArrowRight className="size-3 text-muted" />
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
+
+            {/* Footer shortcuts */}
+            <div className="flex items-center justify-between px-4 py-2 border-t border-line/60 text-[11px] text-muted bg-surface/50">
+              <div className="flex items-center gap-3">
+                <span>↑↓ Navigate</span>
+                <span>↵ Select</span>
+                <span>Esc Close</span>
+              </div>
+              <span className="opacity-70 font-mono">tanvirh.vercel.app</span>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

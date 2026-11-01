@@ -48,6 +48,8 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -235,21 +237,28 @@ a.card:hover,
   inset: 0;
 }
 
-/* ─── ANIMATIONS & TRANSITIONS ──────────────────────────── */
+/* ─── ANIMATIONS & TRANSITIONS (BUTTERY SMOOTH) ───────────── */
 .fade-up {
-  animation: 0.5s cubic-bezier(0.16, 1, 0.3, 1) both fade-up;
+  animation: 0.65s cubic-bezier(0.16, 1, 0.3, 1) both fade-up;
 }
 
 @keyframes fade-up {
   0% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(12px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 260ms; }
+.stagger-6 { animation-delay: 320ms; }
 
 /* ─── MARKDOWN & PROSE TYPOGRAPHY ───────────────────────── */
 .prose {

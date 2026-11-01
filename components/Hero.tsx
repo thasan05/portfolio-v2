@@ -55,14 +55,14 @@ export default function Hero({ data }: { data: HeroData }) {
     <section id="about" className="container-wide pt-10 pb-16 sm:pt-16 sm:pb-20 md:grid md:grid-cols-[1fr_auto] md:items-center md:gap-12">
       {/* Profile portrait */}
       <div className="fade-up mb-6 md:order-2 md:mb-0 flex justify-start md:justify-end">
-        <div className="relative">
+        <div className="relative group">
           <Image
             src={data.profileImage || "/profile.jpg"}
             alt={`Portrait of ${data.name}`}
             width={384}
             height={384}
             priority
-            className="size-28 sm:size-36 md:size-48 rounded-full border border-line object-cover"
+            className="size-28 sm:size-36 md:size-48 rounded-full border border-line object-cover transition-transform duration-300 group-hover:scale-[1.02] shadow-sm"
           />
           {data.status && (
             <span
@@ -78,19 +78,19 @@ export default function Hero({ data }: { data: HeroData }) {
 
       {/* Narrative content */}
       <div className="md:order-1 max-w-2xl">
-        <h1 className="fade-up font-serif text-[2.75rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl text-fg">
+        <h1 className="fade-up stagger-1 font-serif text-[2.75rem] leading-[1.05] font-semibold tracking-tight sm:text-6xl text-fg">
           {data.name}
         </h1>
 
-        <p className="fade-up mt-2 font-serif italic text-lg sm:text-xl text-accent font-normal">
+        <p className="fade-up stagger-2 mt-2 font-serif italic text-lg sm:text-xl text-accent font-normal">
           {data.title || "Networking & Systems Focused CSE Undergraduate"}
         </p>
 
-        <p className="fade-up mt-5 font-serif text-xl sm:text-2xl leading-snug text-muted">
+        <p className="fade-up stagger-2 mt-5 font-serif text-xl sm:text-2xl leading-snug text-muted">
           {data.bio}
         </p>
 
-        <div className="fade-up mt-4 text-[15px] text-muted space-y-1">
+        <div className="fade-up stagger-3 mt-4 text-[15px] text-muted space-y-1">
           <div className="flex items-center gap-2">
             <MapPin className="size-3.5 shrink-0 text-muted" />
             <span>Based in {data.location} · {data.status}</span>
@@ -104,7 +104,7 @@ export default function Hero({ data }: { data: HeroData }) {
 
         {/* Focus tags */}
         {data.focusTags && data.focusTags.length > 0 && (
-          <div className="fade-up mt-4 flex flex-wrap gap-1.5" aria-label="Core focus areas">
+          <div className="fade-up stagger-4 mt-4 flex flex-wrap gap-1.5" aria-label="Core focus areas">
             {data.focusTags.map((tag) => (
               <span key={tag} className="tag">
                 {tag}
@@ -114,7 +114,7 @@ export default function Hero({ data }: { data: HeroData }) {
         )}
 
         {/* Action buttons */}
-        <div className="fade-up mt-8 flex flex-wrap items-center gap-3">
+        <div className="fade-up stagger-5 mt-8 flex flex-wrap items-center gap-3">
           <a href="#projects" className="btn btn-primary">
             See Projects
           </a>
@@ -154,7 +154,7 @@ export default function Hero({ data }: { data: HeroData }) {
 
         {/* Verified Social links */}
         {data.socials && data.socials.length > 0 && (
-          <div className="fade-up mt-6 flex flex-wrap items-center gap-2 text-muted">
+          <div className="fade-up stagger-6 mt-6 flex flex-wrap items-center gap-2 text-muted">
             {data.socials.map((s) => (
               <a
                 key={s.platform}
