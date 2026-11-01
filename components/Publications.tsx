@@ -11,29 +11,29 @@ export default function Publications({ data }: { data: PublicationsData }) {
   if (!hasConferences && !hasJournals) return null;
 
   return (
-    <section id="research" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="research-heading">
+    <section id="research" className="container-wide mt-20 sm:mt-28 scroll-mt-20" aria-labelledby="research-heading">
       <div className="flex flex-col gap-2">
-        <h2 id="research-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
+        <h2 id="research-heading" className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-fg">
           Academic Research &amp; Publications
         </h2>
-        <p className="text-muted text-[15px] max-w-2xl">
+        <p className="text-muted text-[15px] sm:text-base max-w-2xl leading-relaxed">
           Peer-reviewed conference proceedings and research investigations in applied computing.
         </p>
       </div>
 
       {hasConferences && (
         <div className="mt-8">
-          <h3 className="font-serif text-lg font-semibold text-fg mb-3">
+          <h3 className="font-sans text-lg sm:text-xl font-semibold tracking-tight text-fg mb-4">
             Conference Proceedings
           </h3>
-          <ul className="divide-y divide-line border-y border-line">
+          <ul className="divide-y divide-line/70 border-y border-line/70">
             {data.conferences.map((item) => (
-              <li key={item.id} className="py-4 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+              <li key={item.id} className="py-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                 <div className="space-y-1.5 flex-1">
-                  <h4 className="font-serif text-lg font-semibold text-fg leading-snug">
+                  <h4 className="font-sans text-base sm:text-lg font-semibold tracking-tight text-fg leading-snug">
                     {item.title}
                   </h4>
-                  <p className="text-[15px] text-muted">
+                  <p className="text-[14.5px] text-muted">
                     {item.venue}
                     {item.location && <span> · {item.location}</span>}
                   </p>
@@ -60,7 +60,7 @@ export default function Publications({ data }: { data: PublicationsData }) {
                   )}
                 </div>
                 {item.date && (
-                  <span className="shrink-0 text-sm text-muted tabular-nums sm:text-right">
+                  <span className="shrink-0 text-xs sm:text-sm text-muted tabular-nums sm:text-right font-medium">
                     {item.date}
                   </span>
                 )}
@@ -72,17 +72,17 @@ export default function Publications({ data }: { data: PublicationsData }) {
 
       {hasJournals && (
         <div className="mt-10">
-          <h3 className="font-serif text-lg font-semibold text-fg mb-3">
+          <h3 className="font-sans text-lg sm:text-xl font-semibold tracking-tight text-fg mb-4">
             Journal Articles
           </h3>
-          <ul className="divide-y divide-line border-y border-line">
+          <ul className="divide-y divide-line/70 border-y border-line/70">
             {data.journals.map((item) => (
-              <li key={item.id} className="py-4 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+              <li key={item.id} className="py-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                 <div className="space-y-1.5 flex-1">
-                  <h4 className="font-serif text-lg font-semibold text-fg leading-snug">
+                  <h4 className="font-sans text-base sm:text-lg font-semibold tracking-tight text-fg leading-snug">
                     {item.title}
                   </h4>
-                  <p className="text-[15px] text-muted">
+                  <p className="text-[14.5px] text-muted">
                     {item.journal}
                   </p>
                   {(item.doi || item.paperUrl) && (
@@ -108,7 +108,7 @@ export default function Publications({ data }: { data: PublicationsData }) {
                   )}
                 </div>
                 {item.date && (
-                  <span className="shrink-0 text-sm text-muted tabular-nums sm:text-right">
+                  <span className="shrink-0 text-xs sm:text-sm text-muted tabular-nums sm:text-right font-medium">
                     {item.date}
                   </span>
                 )}

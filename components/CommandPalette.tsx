@@ -61,54 +61,52 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       action: () => { router.push("/#experience"); handleClose(); },
     },
     {
-      id: "sec-research",
-      title: "Academic Research & Publications",
-      category: "Sections",
-      icon: BookOpen,
-      action: () => { router.push("/#research"); handleClose(); },
-    },
-    {
       id: "sec-education",
-      title: "Academic Background & Qualifications",
+      title: "Academic Background",
       category: "Sections",
       icon: GraduationCap,
       action: () => { router.push("/#education"); handleClose(); },
     },
     {
+      id: "sec-research",
+      title: "Publications & Research Interests",
+      category: "Sections",
+      icon: BookOpen,
+      action: () => { router.push("/#research"); handleClose(); },
+    },
+    {
       id: "sec-beyond",
-      title: "Beyond Academics (Milestones & Gallery)",
+      title: "Beyond Academics & Journey",
       category: "Sections",
       icon: Heart,
       action: () => { router.push("/#beyond"); handleClose(); },
     },
     {
+      id: "sec-books",
+      title: "Bookshelf",
+      category: "Sections",
+      icon: BookOpen,
+      action: () => { router.push("/#books"); handleClose(); },
+    },
+    {
       id: "sec-contact",
-      title: "Get in Touch (Direct Message)",
+      title: "Get in Touch",
       category: "Sections",
       icon: Mail,
       action: () => { router.push("/#contact"); handleClose(); },
     },
-
     // Pages
     {
       id: "page-blog",
-      title: "Blog Archive (Notes & Articles)",
+      title: "Technical Writing & Blog",
       category: "Pages",
       icon: FileText,
       action: () => { router.push("/blog"); handleClose(); },
     },
-    {
-      id: "page-admin",
-      title: "Headless CMS (/admin)",
-      category: "Pages",
-      icon: ExternalLink,
-      action: () => { router.push("/admin"); handleClose(); },
-    },
-
-    // Profiles
+    // External Profiles
     {
       id: "ext-github",
-      title: "GitHub (@thasan05)",
+      title: "GitHub Profile (@thasan05)",
       category: "Profiles & Links",
       icon: Github,
       action: () => { window.open("https://github.com/thasan05", "_blank"); handleClose(); },
@@ -120,7 +118,10 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       category: "Profiles & Links",
       icon: SiGooglescholar as unknown as React.ComponentType<{ className?: string }>,
       action: () => {
-        window.open("https://scholar.google.com/citations?hl=en&authuser=6&user=m3SKoUgAAAAJ", "_blank");
+        window.open(
+          "https://scholar.google.com/citations?hl=en&authuser=6&user=m3SKoUgAAAAJ",
+          "_blank"
+        );
         handleClose();
       },
       external: true,
@@ -197,22 +198,22 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.15 }}
-          className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 px-4"
+          className="fixed inset-0 z-[120] bg-black/60 dark:bg-black/80 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 px-4"
           onClick={handleClose}
           role="dialog"
           aria-modal="true"
-          aria-label="Command Palette"
+          aria-label="Spotlight Command Palette"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: -10 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-xl rounded-2xl border border-line bg-surface shadow-2xl overflow-hidden"
+            className="w-full max-w-xl rounded-2xl sm:rounded-3xl border border-line bg-surface/95 backdrop-blur-2xl shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Search header */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-line/60">
+            {/* Search header (macOS Spotlight style) */}
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-line/60">
               <Search className="size-4 text-muted shrink-0" />
               <input
                 ref={inputRef}
@@ -222,13 +223,13 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
                   setQuery(e.target.value);
                   setSelectedIndex(0);
                 }}
-                placeholder="Type a section, project, or link…"
-                className="w-full bg-transparent text-sm text-fg placeholder:text-muted focus:outline-none"
+                placeholder="Search portfolio, projects, papers, or links…"
+                className="w-full bg-transparent text-sm text-fg placeholder:text-muted/70 focus:outline-none font-normal"
               />
               <button
                 type="button"
                 onClick={handleClose}
-                className="grid size-7 place-items-center rounded-lg text-muted hover:text-fg hover:bg-line/40 transition-colors"
+                className="grid size-7 place-items-center rounded-full text-muted hover:text-fg hover:bg-black/[0.05] dark:hover:bg-white/[0.1] transition-colors"
                 aria-label="Close"
               >
                 <X className="size-4" />
@@ -242,7 +243,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
                   No matching destinations found.
                 </div>
               ) : (
-                <ul className="space-y-0.5" role="listbox">
+                <ul className="space-y-1" role="listbox">
                   {filtered.map((item, idx) => {
                     const Icon = item.icon;
                     const isSelected = idx === selectedIndex;
@@ -253,24 +254,24 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
                         aria-selected={isSelected}
                         onClick={() => item.action()}
                         onMouseEnter={() => setSelectedIndex(idx)}
-                        className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-colors text-sm ${
+                        className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl cursor-pointer transition-all duration-150 text-sm ${
                           isSelected
-                            ? "bg-line/60 text-fg"
-                            : "text-muted hover:text-fg hover:bg-line/30"
+                            ? "bg-accent text-white shadow-sm"
+                            : "text-muted hover:text-fg hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
                         }`}
                       >
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <Icon className="size-4 shrink-0 text-muted" />
-                          <span className="truncate">{item.title}</span>
+                        <div className="flex items-center gap-3 min-w-0">
+                          <Icon className={`size-4 shrink-0 ${isSelected ? "text-white" : "text-muted"}`} />
+                          <span className={`truncate font-medium ${isSelected ? "text-white" : "text-fg"}`}>{item.title}</span>
                         </div>
                         <div className="flex items-center gap-2 shrink-0">
-                          <span className="text-[11px] font-medium text-muted/80 bg-line/40 px-2 py-0.5 rounded-md">
+                          <span className={`text-[11px] font-medium px-2 py-0.5 rounded-md ${isSelected ? "bg-white/20 text-white" : "bg-black/[0.04] dark:bg-white/[0.06] text-muted"}`}>
                             {item.category}
                           </span>
                           {item.external ? (
-                            <ExternalLink className="size-3 text-muted" />
+                            <ExternalLink className={`size-3 ${isSelected ? "text-white" : "text-muted"}`} />
                           ) : (
-                            <ArrowRight className="size-3 text-muted" />
+                            <ArrowRight className={`size-3 ${isSelected ? "text-white" : "text-muted"}`} />
                           )}
                         </div>
                       </li>
@@ -281,13 +282,13 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
             </div>
 
             {/* Footer shortcuts */}
-            <div className="flex items-center justify-between px-4 py-2 border-t border-line/60 text-[11px] text-muted bg-surface/50">
-              <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between px-4 py-2.5 border-t border-line/60 text-[11px] text-muted bg-surface/40">
+              <div className="flex items-center gap-3 font-medium">
                 <span>↑↓ Navigate</span>
                 <span>↵ Select</span>
                 <span>Esc Close</span>
               </div>
-              <span className="opacity-70 font-mono">tanvirh.vercel.app</span>
+              <span className="opacity-70 font-mono">Spotlight Search</span>
             </div>
           </motion.div>
         </motion.div>

@@ -52,28 +52,29 @@ export default function Navbar({ showBlog = true, onOpenCommandPalette }: Navbar
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-line/40 bg-bg/85 backdrop-blur-md transition-colors">
-      <div className="container-wide flex items-center justify-between gap-4 py-3.5">
+    <header className="sticky top-0 z-40 w-full h-11 sm:h-12 border-b border-black/[0.08] dark:border-white/[0.12] bg-[#f5f5f7]/80 dark:bg-black/80 backdrop-blur-xl transition-colors">
+      <div className="container-wide h-full flex items-center justify-between gap-4">
         <Link
           href="/"
-          className="font-serif text-xl font-semibold tracking-tight transition-opacity hover:opacity-90"
+          className="font-sans text-[15px] font-semibold tracking-tight text-fg transition-opacity hover:opacity-75 flex items-center gap-1"
           aria-label="Tanvir Hasan, home"
         >
-          Tanvir<span className="text-accent">.</span>
+          <span>Tanvir</span>
+          <span className="size-1.5 rounded-full bg-accent inline-block" />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav aria-label="Main" className="hidden sm:flex items-center gap-1 text-sm sm:gap-1.5">
+        <nav aria-label="Main" className="hidden sm:flex items-center gap-0.5 md:gap-1 text-xs">
           {NAV_ITEMS.slice(0, 4).map((item) => {
             const isActive = activeSection === item.id;
             return (
               <Link
                 key={item.id}
                 href={item.href}
-                className={`rounded-full px-3 py-1.5 transition-all text-xs font-medium ${
+                className={`rounded-full px-2.5 py-1 text-[12px] transition-all duration-200 ${
                   isActive
-                    ? "text-fg bg-line/60"
-                    : "text-muted hover:text-fg hover:bg-line/40"
+                    ? "text-fg bg-black/[0.06] dark:bg-white/[0.12] font-medium"
+                    : "text-muted hover:text-fg hover:bg-black/[0.03] dark:hover:bg-white/[0.05]"
                 }`}
               >
                 {item.label}
@@ -84,7 +85,7 @@ export default function Navbar({ showBlog = true, onOpenCommandPalette }: Navbar
           {showBlog && (
             <Link
               href="/blog"
-              className="rounded-full px-3 py-1.5 transition-all text-xs font-medium text-muted hover:text-fg hover:bg-line/40"
+              className="rounded-full px-2.5 py-1 text-[12px] transition-all duration-200 text-muted hover:text-fg hover:bg-black/[0.03] dark:hover:bg-white/[0.05]"
             >
               Blog
             </Link>
@@ -96,10 +97,10 @@ export default function Navbar({ showBlog = true, onOpenCommandPalette }: Navbar
               <Link
                 key={item.id}
                 href={item.href}
-                className={`rounded-full px-3 py-1.5 transition-all text-xs font-medium ${
+                className={`rounded-full px-2.5 py-1 text-[12px] transition-all duration-200 ${
                   isActive
-                    ? "text-fg bg-line/60"
-                    : "text-muted hover:text-fg hover:bg-line/40"
+                    ? "text-fg bg-black/[0.06] dark:bg-white/[0.12] font-medium"
+                    : "text-muted hover:text-fg hover:bg-black/[0.03] dark:hover:bg-white/[0.05]"
                 }`}
               >
                 {item.label}
@@ -107,12 +108,12 @@ export default function Navbar({ showBlog = true, onOpenCommandPalette }: Navbar
             );
           })}
 
-          <div className="ml-1 pl-1.5 border-l border-line/60 flex items-center gap-1">
+          <div className="ml-1.5 pl-2 border-l border-line/60 flex items-center gap-1">
             {onOpenCommandPalette && (
               <button
                 type="button"
                 onClick={onOpenCommandPalette}
-                className="grid size-8 place-items-center rounded-full text-muted hover:text-fg hover:bg-line/40 transition-colors"
+                className="grid size-7 place-items-center rounded-full text-muted hover:text-fg hover:bg-black/[0.04] dark:hover:bg-white/[0.08] transition-colors"
                 aria-label="Search and quick jump (Ctrl+K)"
                 title="Search and quick jump (Ctrl+K)"
               >
@@ -124,35 +125,35 @@ export default function Navbar({ showBlog = true, onOpenCommandPalette }: Navbar
         </nav>
 
         {/* Mobile controls */}
-        <div className="flex sm:hidden items-center gap-1.5">
+        <div className="flex sm:hidden items-center gap-1">
           {onOpenCommandPalette && (
             <button
               type="button"
               onClick={onOpenCommandPalette}
-              className="grid size-9 place-items-center rounded-full text-muted hover:text-fg hover:bg-line/40 transition-colors"
+              className="grid size-8 place-items-center rounded-full text-muted hover:text-fg hover:bg-black/[0.04] dark:hover:bg-white/[0.08] transition-colors"
               aria-label="Search"
             >
-              <Command className="size-4" />
+              <Command className="size-3.5" />
             </button>
           )}
           <ThemeToggle />
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className="grid size-9 place-items-center rounded-full text-muted hover:text-fg hover:bg-line/50 transition-colors"
+            className="grid size-8 place-items-center rounded-full text-muted hover:text-fg hover:bg-black/[0.04] dark:hover:bg-white/[0.08] transition-colors"
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            {menuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown sheet */}
       {menuOpen && (
         <nav
           aria-label="Mobile Navigation"
-          className="sm:hidden border-t border-line/60 bg-bg/95 backdrop-blur-md px-5 py-4 shadow-lg space-y-1"
+          className="sm:hidden border-b border-black/[0.08] dark:border-white/[0.12] bg-[#f5f5f7]/95 dark:bg-black/95 backdrop-blur-2xl px-5 py-4 shadow-xl space-y-1 transition-all"
         >
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
@@ -163,8 +164,8 @@ export default function Navbar({ showBlog = true, onOpenCommandPalette }: Navbar
                 onClick={() => setMenuOpen(false)}
                 className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
                   isActive
-                    ? "text-fg bg-line/60 font-medium"
-                    : "text-muted hover:text-fg hover:bg-line/40"
+                    ? "text-fg bg-black/[0.06] dark:bg-white/[0.12] font-medium"
+                    : "text-muted hover:text-fg hover:bg-black/[0.03] dark:hover:bg-white/[0.05]"
                 }`}
               >
                 {item.label}
@@ -175,7 +176,7 @@ export default function Navbar({ showBlog = true, onOpenCommandPalette }: Navbar
             <Link
               href="/blog"
               onClick={() => setMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm text-muted hover:text-fg hover:bg-line/40 transition-colors"
+              className="block rounded-lg px-3 py-2 text-sm text-muted hover:text-fg hover:bg-black/[0.03] dark:hover:bg-white/[0.05] transition-colors"
             >
               Blog
             </Link>

@@ -8,18 +8,21 @@ export default function Certifications({ data }: { data: CertItem[] }) {
   if (!data || data.length === 0) return null;
 
   return (
-    <section id="certifications" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="certifications-heading">
+    <section id="certifications" className="container-wide mt-20 sm:mt-28 scroll-mt-20" aria-labelledby="certifications-heading">
       <div className="flex flex-col gap-2">
-        <h2 id="certifications-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
+        <h2 id="certifications-heading" className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-fg">
           Verified Credentials
         </h2>
+        <p className="text-muted text-[15px] sm:text-base max-w-2xl leading-relaxed">
+          Industry certifications, technical qualifications, and verified competency assessments.
+        </p>
       </div>
 
-      <ul className="mt-6 divide-y divide-line border-y border-line">
+      <ul className="mt-7 divide-y divide-line/70 border-y border-line/70">
         {data.map((cert) => (
-          <li key={cert.id} className="flex flex-col gap-1 py-3.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-            <div className="text-[15px]">
-              <span className="font-medium text-fg">{cert.name}</span>
+          <li key={cert.id} className="flex flex-col gap-1.5 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+            <div className="text-[14.5px]">
+              <span className="font-semibold text-fg">{cert.name}</span>
               <span className="text-muted"> · {cert.issuer}</span>
               {cert.credentialUrl && (
                 <a
@@ -32,7 +35,7 @@ export default function Certifications({ data }: { data: CertItem[] }) {
                 </a>
               )}
             </div>
-            <span className="shrink-0 text-sm text-muted tabular-nums sm:text-right">
+            <span className="shrink-0 text-xs sm:text-sm text-muted tabular-nums sm:text-right font-medium">
               {cert.date}
             </span>
           </li>

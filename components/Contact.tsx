@@ -53,21 +53,21 @@ export default function Contact({ email }: { email?: string }) {
   };
 
   const inputCls =
-    "w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-fg placeholder:text-muted focus:outline-none focus:border-fg transition-colors";
+    "w-full rounded-xl border border-line bg-black/[0.02] dark:bg-white/[0.04] px-4 py-2.5 text-sm text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all";
 
   return (
-    <section id="contact" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="contact-heading">
+    <section id="contact" className="container-wide mt-20 sm:mt-28 scroll-mt-20" aria-labelledby="contact-heading">
       <div className="flex flex-col gap-2">
-        <h2 id="contact-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
+        <h2 id="contact-heading" className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-fg">
           Get in Touch
         </h2>
-        <p className="text-muted text-[15px] max-w-2xl leading-relaxed">
+        <p className="text-muted text-[15px] sm:text-base max-w-2xl leading-relaxed">
           Interested in networking research, internship opportunities, or collaborating? Drop a note below.
           {email && (
             <>
               {" "}Or reach out directly at{" "}
               <span className="inline-flex items-center gap-1.5 font-medium text-fg">
-                <a href={`mailto:${email}`} className="text-accent underline hover:text-fg transition-colors">
+                <a href={`mailto:${email}`} className="text-accent underline hover:opacity-85 transition-opacity">
                   {email}
                 </a>
                 <button
@@ -89,7 +89,7 @@ export default function Contact({ email }: { email?: string }) {
         </p>
       </div>
 
-      <div className="card mt-6 max-w-2xl">
+      <div className="card mt-7 max-w-2xl rounded-2xl sm:rounded-3xl border border-line bg-surface p-6 sm:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
         {status === "sent" ? (
           <div className="flex items-center gap-3 py-4 text-accent">
             <CheckCircle2 className="size-5 shrink-0" />
@@ -111,7 +111,7 @@ export default function Contact({ email }: { email?: string }) {
             />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="contact-name" className="block text-xs font-medium text-muted uppercase tracking-wider mb-1.5">
+                <label htmlFor="contact-name" className="block text-xs font-semibold text-muted uppercase tracking-wider mb-1.5">
                   Name
                 </label>
                 <input
@@ -125,7 +125,7 @@ export default function Contact({ email }: { email?: string }) {
                 />
               </div>
               <div>
-                <label htmlFor="contact-email" className="block text-xs font-medium text-muted uppercase tracking-wider mb-1.5">
+                <label htmlFor="contact-email" className="block text-xs font-semibold text-muted uppercase tracking-wider mb-1.5">
                   Email
                 </label>
                 <input
@@ -143,7 +143,7 @@ export default function Contact({ email }: { email?: string }) {
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label htmlFor="contact-message" className="block text-xs font-medium text-muted uppercase tracking-wider">
+                <label htmlFor="contact-message" className="block text-xs font-semibold text-muted uppercase tracking-wider">
                   Message
                 </label>
                 {message.length > 0 && (
@@ -176,7 +176,7 @@ export default function Contact({ email }: { email?: string }) {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="btn btn-primary"
+                className="btn btn-primary px-6 py-2.5"
               >
                 {status === "sending" ? (
                   <>

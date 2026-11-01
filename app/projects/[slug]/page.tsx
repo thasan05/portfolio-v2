@@ -48,36 +48,36 @@ export default async function ProjectCaseStudy(
         <article className="container-page pt-12 sm:pt-16 pb-24">
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg transition-colors mb-10 font-medium"
           >
             <ArrowLeft className="size-4" /> Back to projects
           </Link>
 
-          <header className="border-b border-line pb-8 mb-10">
+          <header className="border-b border-line/70 pb-8 mb-10">
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted mb-4 tabular-nums">
               <span className="tag text-xs font-medium">
                 {project.status}
               </span>
               {project.date && (
-                <span className="flex items-center gap-1">
+                <span className="flex items-center gap-1 font-medium">
                   <Calendar className="size-3" />
                   <span>{project.date}</span>
                 </span>
               )}
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-fg tracking-tight leading-tight">
+            <h1 className="font-sans text-3xl sm:text-5xl font-bold text-fg tracking-tight leading-tight">
               {project.title}
             </h1>
 
-            <p className="mt-4 font-serif text-xl sm:text-2xl text-muted leading-relaxed">
+            <p className="mt-4 text-lg sm:text-xl text-muted leading-relaxed font-normal">
               {project.description}
             </p>
 
             {project.tags.length > 0 && (
               <div className="flex flex-wrap gap-1.5 mt-6">
                 {project.tags.map((t) => (
-                  <span key={t} className="tag text-xs">
+                  <span key={t} className="tag text-xs font-medium">
                     {t}
                   </span>
                 ))}
@@ -85,13 +85,13 @@ export default async function ProjectCaseStudy(
             )}
 
             {(project.repoUrl || project.liveUrl) && (
-              <div className="flex flex-wrap items-center gap-4 mt-8 pt-4 border-t border-line/60">
+              <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-line/60">
                 {project.repoUrl && (
                   <a
                     href={safeHref(project.repoUrl)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn"
+                    className="btn px-5 py-2.5"
                   >
                     <Github className="size-3.5" />
                     <span>Source code</span>
@@ -102,7 +102,7 @@ export default async function ProjectCaseStudy(
                     href={safeHref(project.liveUrl)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary"
+                    className="btn btn-primary px-5 py-2.5"
                   >
                     <ExternalLink className="size-3.5" />
                     <span>Live demo</span>
@@ -116,10 +116,10 @@ export default async function ProjectCaseStudy(
             <Markdown>{project.body!}</Markdown>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-line">
+          <div className="mt-16 pt-8 border-t border-line/70">
             <Link
               href="/#projects"
-              className="text-sm font-medium text-accent hover:underline inline-flex items-center gap-1"
+              className="text-sm font-medium text-accent hover:underline inline-flex items-center gap-1.5"
             >
               <ArrowLeft className="size-4" /> Back to all projects
             </Link>

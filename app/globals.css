@@ -3,8 +3,8 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-serif: var(--font-newsreader), "Newsreader Variable", ui-serif, Georgia, serif;
-  --font-sans: var(--font-inter), "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), "Newsreader Variable", Georgia, serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   
   --color-bg: var(--bg);
   --color-surface: var(--surface);
@@ -15,27 +15,31 @@
   --color-accent-soft: var(--accent-soft);
 }
 
-/* ─── DESIGN TOKENS & CSS VARIABLES ─────────────────────── */
+/* ─── APPLE DESIGN SYSTEM TOKENS ────────────────────────── */
 :root {
-  --bg: #fafaf9;
+  --bg: #f5f5f7;
   --surface: #ffffff;
-  --fg: #18181b;
-  --muted: #5f5f68;
-  --line: #e4e4e7;
-  --accent: #166534;
-  --accent-soft: #dcfce7;
+  --fg: #1d1d1f;
+  --muted: #86868b;
+  --line: #d2d2d7;
+  --accent: #0071e3;
+  --accent-soft: rgba(0, 113, 227, 0.08);
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 14px 32px -4px rgba(0, 0, 0, 0.08);
   color-scheme: light;
 }
 
 .dark,
 [data-theme="dark"] {
-  --bg: #09090b;
-  --surface: #151518;
-  --fg: #f4f4f5;
-  --muted: #a1a1aa;
-  --line: #27272a;
-  --accent: #86efac;
-  --accent-soft: #14532d;
+  --bg: #000000;
+  --surface: #161617;
+  --fg: #f5f5f7;
+  --muted: #86868b;
+  --line: #333336;
+  --accent: #2997ff;
+  --accent-soft: rgba(41, 151, 255, 0.12);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
 
@@ -49,18 +53,39 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--fg);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-h1, h2, h3, h4 {
+h1 {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h2 {
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+h3 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+h4 {
+  letter-spacing: -0.015em;
+  font-weight: 600;
   text-wrap: balance;
 }
 
@@ -69,8 +94,8 @@ p {
 }
 
 ::selection {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
 }
 
 :where(input, textarea, [contenteditable]) {
@@ -97,17 +122,17 @@ p {
   scrollbar-color: var(--line) transparent;
 }
 
-/* ─── EDITORIAL LAYOUT & CONTAINERS ─────────────────────── */
+/* ─── EDITORIAL & BENTO LAYOUT CONTAINERS ───────────────── */
 .container-wide {
   width: 100%;
   max-width: 64rem; /* 1024px */
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .container-wide {
-    padding-inline: 1.5rem;
+    padding-inline: 2rem;
   }
 }
 
@@ -115,20 +140,20 @@ p {
   width: 100%;
   max-width: 48rem; /* 768px */
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .container-page {
-    padding-inline: 1.5rem;
+    padding-inline: 2rem;
   }
 }
 
-/* ─── EDITORIAL PRIMITIVES ──────────────────────────────── */
+/* ─── APPLE PRIMITIVES (BUTTONS, CARDS, PILLS) ───────────── */
 .eyebrow {
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -138,36 +163,41 @@ p {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
-  transition: text-decoration-thickness 0.15s ease;
+  transition: text-decoration-thickness 0.15s ease, opacity 0.15s ease;
 }
 
 .link:hover {
   text-decoration-thickness: 2px;
+  opacity: 0.9;
 }
 
+/* Apple Pill Button */
 .btn {
-  min-height: 2.75rem;
+  min-height: 2.5rem;
   align-items: center;
   gap: 0.5rem;
   border: 1px solid var(--line);
   padding-inline: 1.25rem;
   font-size: 0.875rem;
   font-weight: 500;
+  letter-spacing: -0.01em;
   border-radius: 9999px;
   display: inline-flex;
   justify-content: center;
   color: var(--fg);
-  background-color: transparent;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  background-color: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .btn:hover {
-  border-color: var(--fg);
-  transform: translateY(-1px);
+  border-color: var(--muted);
+  transform: scale(1.015);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: scale(0.985);
 }
 
 .btn:focus-visible {
@@ -175,47 +205,60 @@ p {
   outline-offset: 2px;
 }
 
+/* Apple Primary Blue CTA */
 .btn-primary {
-  border-color: var(--fg);
-  background-color: var(--fg);
-  color: var(--bg);
+  border-color: var(--accent);
+  background-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 113, 227, 0.25);
 }
 
 .btn-primary:hover {
   border-color: var(--accent);
   background-color: var(--accent);
   color: #ffffff;
-  transform: translateY(-1px);
+  opacity: 0.95;
+  transform: scale(1.015);
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.35);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: scale(0.985);
 }
 
+/* Apple Spec Tag / Pill */
 .tag {
   border: 1px solid var(--line);
-  padding-inline: 0.625rem;
-  padding-block: 0.125rem;
+  background-color: var(--bg);
+  padding-inline: 0.65rem;
+  padding-block: 0.2rem;
   font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--muted);
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
   white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
+/* Apple Bento Card */
 .card {
-  border-radius: 1rem;
+  border-radius: 1.25rem; /* 20px */
   border: 1px solid var(--line);
   background-color: var(--surface);
-  padding: 1.25rem;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 640px) {
   .card {
-    padding: 1.5rem;
+    padding: 1.75rem;
   }
 }
 
@@ -223,12 +266,7 @@ a.card:hover,
 .card:has(a.stretched:hover) {
   transform: translateY(-2px);
   border-color: var(--muted);
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
-}
-
-.dark a.card:hover,
-.dark .card:has(a.stretched:hover) {
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .stretched::after {
@@ -275,10 +313,9 @@ a.card:hover,
 }
 
 .prose h1, .prose h2, .prose h3 {
-  font-family: var(--font-serif);
   color: var(--fg);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .prose h1 {
@@ -339,7 +376,6 @@ a.card:hover,
   margin: 1.5em 0;
   color: var(--muted);
   font-style: italic;
-  font-family: var(--font-serif);
 }
 
 .prose ul, .prose ol {
@@ -361,7 +397,7 @@ a.card:hover,
 .glass-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 1rem;
+  border-radius: 1.25rem;
 }
 
 .glass-surface {

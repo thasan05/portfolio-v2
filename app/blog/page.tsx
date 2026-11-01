@@ -26,27 +26,27 @@ export default async function BlogIndex() {
         <div className="container-page pt-12 sm:pt-16 pb-20">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg transition-colors mb-8 font-medium"
           >
             <ArrowLeft className="size-4" /> Back to home
           </Link>
 
-          <header className="border-b border-line pb-8">
-            <h1 className="font-serif text-4xl font-semibold tracking-tight sm:text-5xl text-fg">
+          <header className="border-b border-line/70 pb-8">
+            <h1 className="font-sans text-4xl font-bold tracking-tight sm:text-5xl text-fg">
               Notes &amp; Articles
             </h1>
-            <p className="mt-4 text-muted text-[17px] max-w-2xl leading-relaxed">
+            <p className="mt-3 text-muted text-[16px] sm:text-[17px] max-w-2xl leading-relaxed font-normal">
               Writing about computer networks, systems architectures, academic research, and engineering lessons.
             </p>
           </header>
 
           {posts.length === 0 ? (
             <div className="py-16 text-center text-muted">
-              <p className="font-serif text-lg">No posts published yet.</p>
+              <p className="font-sans text-lg font-medium">No posts published yet.</p>
               <p className="text-sm mt-1">Check back soon for new articles.</p>
             </div>
           ) : (
-            <ul className="divide-y divide-line border-b border-line">
+            <ul className="divide-y divide-line/70 border-b border-line/70">
               {posts.map((post) => {
                 const wordCount = post.body ? post.body.trim().split(/\s+/).length : 0;
                 const readTime = Math.max(1, Math.round(wordCount / 200));
@@ -58,22 +58,22 @@ export default async function BlogIndex() {
                       className="group block py-8 transition-opacity hover:opacity-95"
                     >
                       <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-                        <h2 className="font-serif text-2xl font-semibold text-fg group-hover:text-accent transition-colors leading-snug">
+                        <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight text-fg group-hover:text-accent transition-colors leading-snug">
                           {post.title}
                         </h2>
-                        <span className="shrink-0 text-sm text-muted tabular-nums sm:text-right">
+                        <span className="shrink-0 text-xs sm:text-sm text-muted tabular-nums sm:text-right font-medium">
                           <time dateTime={post.date}>{post.date}</time> · {readTime} min read
                         </span>
                       </div>
                       {post.excerpt && (
-                        <p className="mt-2 text-[15px] text-muted leading-relaxed">
+                        <p className="mt-2.5 text-[14.5px] text-muted leading-relaxed font-normal">
                           {post.excerpt}
                         </p>
                       )}
                       {post.tags && post.tags.length > 0 && (
                         <div className="mt-4 flex flex-wrap gap-1.5">
                           {post.tags.map((t) => (
-                            <span key={t} className="tag text-xs">
+                            <span key={t} className="tag text-xs font-medium">
                               {t}
                             </span>
                           ))}

@@ -42,7 +42,7 @@ function MemorySlider({
 
   if (images.length === 0) {
     return (
-      <div className="relative aspect-[16/9] rounded-xl mb-3 bg-line/20 flex items-center justify-center text-xs text-muted">
+      <div className="relative aspect-[16/9] rounded-2xl mb-3.5 bg-line/20 flex items-center justify-center text-xs text-muted">
         No Preview
       </div>
     );
@@ -50,11 +50,11 @@ function MemorySlider({
 
   return (
     <div
-      className="relative aspect-[16/9] rounded-xl overflow-hidden mb-3 group/slider bg-line/20 cursor-zoom-in"
+      className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-3.5 group/slider bg-line/20 cursor-zoom-in"
       onClick={() => onExpand(current)}
     >
       <div
-        className="flex h-full transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        className="flex h-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {images.map((src, i) => (
@@ -75,14 +75,14 @@ function MemorySlider({
           <button
             onClick={prev}
             aria-label={`${title} — previous photo`}
-            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 backdrop-blur-sm text-white opacity-0 group-hover/slider:opacity-100 focus-visible:opacity-100 transition-all hover:scale-105 z-10"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 backdrop-blur-md text-white opacity-0 group-hover/slider:opacity-100 focus-visible:opacity-100 transition-all hover:scale-105 z-10"
           >
             <ChevronLeft size={16} />
           </button>
           <button
             onClick={next}
             aria-label={`${title} — next photo`}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 backdrop-blur-sm text-white opacity-0 group-hover/slider:opacity-100 focus-visible:opacity-100 transition-all hover:scale-105 z-10"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 backdrop-blur-md text-white opacity-0 group-hover/slider:opacity-100 focus-visible:opacity-100 transition-all hover:scale-105 z-10"
           >
             <ChevronRight size={16} />
           </button>
@@ -91,7 +91,7 @@ function MemorySlider({
 
       {/* Dot indicators */}
       {images.length > 1 && (
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-sm z-10">
+        <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex gap-1 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md z-10">
           {images.map((_, i) => (
             <div
               key={i}
@@ -192,24 +192,27 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
   if (!data || data.length === 0) return null;
 
   return (
-    <section id="beyond" className="container-wide mt-16 sm:mt-24 scroll-mt-20" aria-labelledby="beyond-heading">
+    <section id="beyond" className="container-wide mt-20 sm:mt-28 scroll-mt-20" aria-labelledby="beyond-heading">
       <div className="flex flex-col gap-2">
-        <h2 id="beyond-heading" className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl text-fg">
+        <h2 id="beyond-heading" className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-fg">
           Beyond Academics
         </h2>
-        <p className="text-muted text-[15px] max-w-2xl">
+        <p className="text-muted text-[15px] sm:text-base max-w-2xl leading-relaxed">
           Cadet discipline, public speaking championships, community building, drumming, and voluntary CS teaching.
         </p>
       </div>
 
-      <div className="mt-8 grid gap-6 sm:grid-cols-2">
+      <div className="mt-7 grid gap-5 sm:grid-cols-2">
         {data.map((item) => {
           const Icon = getIcon(item.iconType);
           const isExpanded = expandedCards.has(item.id);
           const isLong = item.description.length > 120;
 
           return (
-            <div key={item.id} className="card flex flex-col justify-between">
+            <div
+              key={item.id}
+              className="card flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-line bg-surface p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-fg/20"
+            >
               <div>
                 <MemorySlider
                   images={item.images}
@@ -224,11 +227,11 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-lg font-semibold text-fg leading-snug">
+                <h3 className="font-sans text-base sm:text-lg font-semibold tracking-tight text-fg leading-snug">
                   {item.title}
                 </h3>
 
-                <p className={`mt-2 text-sm text-muted leading-relaxed ${isExpanded ? "" : "line-clamp-3"}`}>
+                <p className={`mt-2 text-sm text-muted leading-relaxed font-normal ${isExpanded ? "" : "line-clamp-3"}`}>
                   {item.description.includes("{{views}}")
                     ? youtubeViews !== null
                       ? <>
@@ -251,8 +254,8 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
                 )}
               </div>
 
-              <div className="mt-4 pt-3 border-t border-line/60 flex items-center justify-between text-xs text-muted">
-                <span className="tabular-nums flex items-center gap-1">
+              <div className="mt-5 pt-3.5 border-t border-line/60 flex items-center justify-between text-xs text-muted">
+                <span className="tabular-nums flex items-center gap-1 font-medium">
                   <Calendar size={11} /> {item.date}
                 </span>
                 {item.images.length > 0 && (
@@ -278,7 +281,7 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
             onClick={closeLightbox}
             role="dialog"
             aria-modal="true"
@@ -287,10 +290,10 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-5 right-5 z-[110] p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              className="absolute top-5 right-5 z-[110] p-2.5 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
               aria-label="Close"
             >
-              <X size={22} />
+              <X size={20} />
             </button>
 
             {/* Image container */}
@@ -303,7 +306,7 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
               onClick={(e) => e.stopPropagation()}
               {...swipeHandlers}
             >
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-black shadow-2xl">
+              <div className="relative aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl border border-white/10">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`${selectedState.item.id}-${selectedState.index}`}
@@ -344,8 +347,8 @@ export default function Beyond({ data }: { data: BeyondItem[] }) {
                 </>
               )}
 
-              <div className="mt-3 text-center text-white">
-                <p className="font-serif text-base font-semibold">{selectedState.item.title}</p>
+              <div className="mt-3.5 text-center text-white">
+                <p className="font-sans text-base font-semibold tracking-tight">{selectedState.item.title}</p>
                 {selectedState.item.images.length > 1 && (
                   <p className="text-white/60 text-xs mt-0.5 tabular-nums">
                     {selectedState.index + 1} / {selectedState.item.images.length}

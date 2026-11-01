@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -45,13 +45,13 @@ export default async function BlogPost(
         <article className="container-page pt-12 sm:pt-16 pb-24">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-fg transition-colors mb-10 font-medium"
           >
             <ArrowLeft className="size-4" /> All articles
           </Link>
 
-          <header className="border-b border-line pb-8 mb-10">
-            <div className="flex flex-wrap items-center gap-3 text-xs text-muted mb-4 tabular-nums">
+          <header className="border-b border-line/70 pb-8 mb-10">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-muted mb-4 tabular-nums font-medium">
               <span className="flex items-center gap-1">
                 <Calendar className="size-3" />
                 <time dateTime={post.date}>{post.date}</time>
@@ -63,12 +63,12 @@ export default async function BlogPost(
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl font-semibold text-fg tracking-tight leading-tight">
+            <h1 className="font-sans text-3xl sm:text-5xl font-bold text-fg tracking-tight leading-tight">
               {post.title}
             </h1>
 
             {post.excerpt && (
-              <p className="mt-4 font-serif text-xl sm:text-2xl text-muted leading-relaxed">
+              <p className="mt-4 text-lg sm:text-xl text-muted leading-relaxed font-normal">
                 {post.excerpt}
               </p>
             )}
@@ -76,7 +76,7 @@ export default async function BlogPost(
             {post.tags.length > 0 && (
               <div className="flex flex-wrap gap-1.5 mt-6">
                 {post.tags.map((t) => (
-                  <span key={t} className="tag text-xs">
+                  <span key={t} className="tag text-xs font-medium">
                     {t}
                   </span>
                 ))}
@@ -88,8 +88,8 @@ export default async function BlogPost(
             <Markdown>{post.body}</Markdown>
           </div>
 
-          {/* Author Signature Card */}
-          <div className="card mt-16 flex flex-col sm:flex-row sm:items-center justify-between gap-6 bg-surface/80">
+          {/* Author Signature Card (Apple Bento Tile) */}
+          <div className="card mt-16 flex flex-col sm:flex-row sm:items-center justify-between gap-6 rounded-2xl sm:rounded-3xl border border-line bg-surface p-6 sm:p-7 shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
             <div className="flex items-center gap-4">
               <Image
                 src={hero.profileImage || "/profile.jpg"}
@@ -99,10 +99,10 @@ export default async function BlogPost(
                 className="size-14 rounded-full border border-line object-cover shrink-0"
               />
               <div>
-                <p className="font-serif text-base font-semibold text-fg">
+                <p className="font-sans text-base font-semibold tracking-tight text-fg">
                   {hero.name}
                 </p>
-                <p className="text-xs text-muted mt-0.5">
+                <p className="text-xs text-muted mt-0.5 font-medium">
                   {hero.title || "Networking & Systems Focused CSE Undergraduate"}
                 </p>
                 <p className="text-xs text-muted/80 mt-1">
@@ -113,29 +113,29 @@ export default async function BlogPost(
             <div className="flex items-center gap-2 shrink-0">
               <Link
                 href="/#contact"
-                className="btn btn-primary text-xs py-1.5 px-3 min-h-[2.25rem]"
+                className="btn btn-primary text-xs py-1.5 px-3.5 min-h-[2.25rem]"
               >
                 Get in touch
               </Link>
               <Link
                 href="/"
-                className="btn text-xs py-1.5 px-3 min-h-[2.25rem]"
+                className="btn text-xs py-1.5 px-3.5 min-h-[2.25rem]"
               >
                 Home
               </Link>
             </div>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-line flex items-center justify-between">
+          <div className="mt-16 pt-8 border-t border-line/70 flex items-center justify-between">
             <Link
               href="/blog"
-              className="text-sm font-medium text-accent hover:underline inline-flex items-center gap-1"
+              className="text-sm font-medium text-accent hover:underline inline-flex items-center gap-1.5"
             >
               <ArrowLeft className="size-4" /> Back to all articles
             </Link>
             <a
               href={`mailto:${hero.email}?subject=Regarding: ${encodeURIComponent(post.title)}`}
-              className="text-sm text-muted hover:text-fg transition-colors"
+              className="text-sm text-muted hover:text-fg transition-colors font-medium"
             >
               Share your thoughts →
             </a>

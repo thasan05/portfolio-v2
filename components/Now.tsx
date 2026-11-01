@@ -15,23 +15,23 @@ export default function Now({ data }: { data: NowData }) {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
             <span className="relative inline-flex size-2 rounded-full bg-accent" />
           </span>
-          <h2 id="now-heading" className="font-serif text-lg font-semibold text-fg">
+          <h2 id="now-heading" className="font-sans text-lg font-semibold tracking-tight text-fg">
             Now
           </h2>
         </div>
         {data.updated && (
-          <p className="text-xs text-muted tabular-nums">
+          <p className="text-xs text-muted tabular-nums font-medium">
             Updated {data.updated}
           </p>
         )}
       </div>
 
-      <div className="card mt-4">
+      <div className="card mt-4 rounded-2xl sm:rounded-3xl border border-line bg-surface p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
         <ul className="divide-y divide-line/60">
           {data.items.map((item, i) => (
-            <li key={i} className="py-2.5 first:pt-0 last:pb-0 text-[15px] text-muted flex items-start gap-2.5">
+            <li key={i} className="py-3 first:pt-0 last:pb-0 text-[14.5px] text-muted flex items-start gap-3">
               <span className="text-accent mt-1 text-xs shrink-0">✦</span>
-              <span>{item}</span>
+              <span className="leading-relaxed">{item}</span>
             </li>
           ))}
         </ul>
